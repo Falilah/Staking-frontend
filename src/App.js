@@ -99,7 +99,7 @@ function App() {
         method: "eth_chainId",
       });
       if (Number(networkId) !== 80001) return;
-      const accountDetails = await getAccountDetails(accounts[0]);
+      // const accountDetails = await getAccountDetails(accounts[0]);
 
       setConnected(true);
     } else {
@@ -192,15 +192,19 @@ function App() {
     });
   };
 
-  useEffect(() => {
-    init();
-    if (!window.ethereum) return;
-    window.ethereum.on("connect", eagerConnect);
-    // binding handler to account changed event
-    window.ethereum.on("accountsChanged", handleAccountChanged);
+  useEffect(
+    () => {
+      init();
+      if (!window.ethereum) return;
+      window.ethereum.on("connect", eagerConnect);
+      // binding handler to account changed event
+      window.ethereum.on("accountsChanged", handleAccountChanged);
 
-    window.ethereum.on("chainChanged", handleChainChanged);
-  }, []);
+      window.ethereum.on("chainChanged", handleChainChanged);
+    },
+    /* eslint-disable */
+    []
+  );
 
   const connectWallet = async () => {
     if (!!window.ethereum || !!window.web3) {
