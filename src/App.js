@@ -26,7 +26,7 @@ function App() {
   // the amount of reward the user has accumulate on his stake
   const [rewardAmount, setRewardAmount] = useState(null);
 
-  const [userStake, setUserStake] = useState(null);
+  const [userStake, setUserStake] = useState([]);
   const [userInput, setUserInput] = useState("");
 
   // the value of token the user is willing to state
@@ -320,6 +320,7 @@ function App() {
     );
 
     const User = await BRTContractInstance.getStakeByAddress(userInput);
+    console.log(User);
 
     setUserStake({
       userAddress: User.staker,

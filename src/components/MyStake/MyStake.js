@@ -16,7 +16,9 @@ const MyStake = ({
   userStake,
   connected,
 }) => {
-  // const { userAddress, userAmount, userTime } = userStake;
+  console.log(userStake);
+  const { userAddress, userAmount, userTime } = userStake;
+  console.log(userAddress);
   return (
     <div className={Styles.root}>
       <h2 className={Styles.heading}>My stake</h2>
@@ -83,9 +85,9 @@ const MyStake = ({
         </button>
       </form>
       <div>
-        {/* <div>{userAddress}</div>
+        {/* <div>{userAddress}</div> */}
         <div>{userAmount}</div>
-        <div>{userTime}</div> */}
+        {/* <div>{userTime}</div> */}
       </div>
     </div>
   );
